@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { createRazorpayOrder, verifyRazorpayPayment } from "@/store/shop/order-slice";
 import { useToast } from "@/components/ui/use-toast";
+import { useNavigate } from "react-router-dom";
 
 function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
@@ -16,6 +17,8 @@ function ShoppingCheckout() {
 
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
   const [isPaymentStart, setIsPaymentStart] = useState(false);
+
+  const navigate = useNavigate()
 
   const totalCartAmount =
     cartItems?.items?.length > 0
@@ -125,7 +128,7 @@ function ShoppingCheckout() {
               description: "Your order has been placed.",
             });
 
-            window.location.href = "/shop/payment-success";
+            navigate('/')
           } else {
             toast({
               title: "Payment Verification Failed",
