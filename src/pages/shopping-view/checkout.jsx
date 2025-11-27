@@ -92,7 +92,7 @@ function ShoppingCheckout() {
 
     // 🔹 Step 2: Load Razorpay script
     const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.src = "https://checkout.razorpay.com/v2/checkout.js";
     document.body.appendChild(script);
 
     script.onload = () => {
