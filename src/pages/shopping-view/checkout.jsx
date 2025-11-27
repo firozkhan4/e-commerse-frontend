@@ -107,7 +107,7 @@ function ShoppingCheckout() {
         handler: async function(paymentRes) {
           // 🔹 Step 3: Verify payment backend
           const verifyRes = await fetch(
-            `${import.meta.env.VITE_API_URL}/payment/verify`,
+            `${import.meta.env.VITE_API_URL}/shop/order/capture`,
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
